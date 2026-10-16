@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Infrastructure Metrics | Dashboard</title>
+
+    <link rel="stylesheet" href="CSS/style.css">
+
+    <!-- Icons -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="app-layout">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+
+            <div class="brand">
+                <div class="brand-icon">
+                    <i class="fa-solid fa-city"></i>
+                </div>
+
+                <div>
+                    <h2>InfraMetrics</h2>
+                    <span>Infrastructure Portal</span>
+                </div>
+            </div>
+
+            <div class="menu-label">WORKSPACE</div>
+
+            <nav class="sidebar-nav">
+
+                <a href="index.html" class="nav-link active">
+                    <i class="fa-solid fa-chart-pie"></i>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="submit-report.html" class="nav-link">
+                    <i class="fa-solid fa-file-circle-plus"></i>
+                    <span>Submit Report</span>
+                </a>
+
+                <a href="my-reports.html" class="nav-link">
+                    <i class="fa-solid fa-list-check"></i>
+                    <span>My Reports</span>
+                </a>
+
+                <a href="authority-dashboard.html" class="nav-link">
+                    <i class="fa-solid fa-building-shield"></i>
+                    <span>Authority Panel</span>
+                </a>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <div class="help-card">
+                    <div class="help-icon">
+                        <i class="fa-solid fa-circle-question"></i>
+                    </div>
+
+                    <h4>Need assistance?</h4>
+
+                    <p>Report an infrastructure issue in your area.</p>
+
+                    <a href="submit-report.html">
+                        Report an Issue
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <a href="login.html" class="nav-link logout-link">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    <span>Logout</span>
+                </a>
+
+            </div>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+
+            <!-- TOPBAR -->
+            <header class="topbar">
+
+                <div class="topbar-left">
+
+                    <button class="menu-toggle"
+                            id="menuToggle"
+                            aria-label="Toggle navigation"
+                            aria-controls="sidebar"
+                            aria-expanded="false">
+
+                        <i class="fa-solid fa-bars"></i>
+
+                    </button>
+
+                    <div class="breadcrumb">
+                        <span>Workspace</span>
+                        <i class="fa-solid fa-chevron-right"></i>
+                        <strong>Dashboard</strong>
+                    </div>
+
+                </div>
+
+                <div class="topbar-right">
+
+                    <button class="icon-button"
+                            aria-label="Notifications">
+
+                        <i class="fa-regular fa-bell"></i>
+                        <span class="notification-dot"></span>
+
+                    </button>
+
+                    <div class="profile">
+
+                        <div class="avatar">IM</div>
+
+                        <div class="profile-info">
+                            <strong id="profileName">Citizen User</strong>
+                            <span>Citizen</span>
+                        </div>
+
+                        <i class="fa-solid fa-chevron-down profile-arrow"></i>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- DASHBOARD BODY -->
+            <section class="dashboard-content">
+
+                <!-- WELCOME -->
+                <div class="welcome-section">
+
+                    <div>
+                        <p class="eyebrow">OVERVIEW</p>
+
+                        <h1>Infrastructure Dashboard</h1>
+
+                        <p class="welcome-text">
+                            Monitor road conditions, report issues, and track
+                            infrastructure improvements in your community.
+                        </p>
+                    </div>
+
+                    <a href="submit-report.html" class="primary-button">
+                        <i class="fa-solid fa-plus"></i>
+                        Submit New Report
+                    </a>
+
+                </div>
+
+
+                <!-- SUMMARY CARDS -->
+                <div class="stats-grid">
+
+                    <article class="stat-card">
+
+                        <div class="stat-top">
+                            <div class="stat-icon blue">
+                                <i class="fa-solid fa-file-lines"></i>
+                            </div>
+
+                            <span class="stat-label">ALL REPORTS</span>
+                        </div>
+
+                        <h2 id="totalReports">--</h2>
+
+                        <p class="stat-description">
+                            Total submitted reports
+                        </p>
+
+                        <div class="stat-footer">
+                            <i class="fa-solid fa-chart-line"></i>
+                            <span>Community submissions</span>
+                        </div>
+
+                    </article>
+
+
+                    <article class="stat-card">
+
+                        <div class="stat-top">
+                            <div class="stat-icon orange">
+                                <i class="fa-regular fa-clock"></i>
+                            </div>
+
+                            <span class="stat-label">PENDING</span>
+                        </div>
+
+                        <h2 id="pendingReports">--</h2>
+
+                        <p class="stat-description">
+                            Awaiting review
+                        </p>
+
+                        <div class="stat-footer orange-text">
+                            <i class="fa-solid fa-hourglass-half"></i>
+                            <span>Needs attention</span>
+                        </div>
+
+                    </article>
+
+
+                    <article class="stat-card">
+
+                        <div class="stat-top">
+                            <div class="stat-icon purple">
+                                <i class="fa-solid fa-screwdriver-wrench"></i>
+                            </div>
+
+                            <span class="stat-label">IN PROGRESS</span>
+                        </div>
+
+                        <h2 id="progressReports">--</h2>
+
+                        <p class="stat-description">
+                            Currently being handled
+                        </p>
+
+                        <div class="stat-footer purple-text">
+                            <i class="fa-solid fa-rotate"></i>
+                            <span>Under maintenance</span>
+                        </div>
+
+                    </article>
+
+
+                    <article class="stat-card">
+
+                        <div class="stat-top">
+                            <div class="stat-icon green">
+                                <i class="fa-solid fa-circle-check"></i>
+                            </div>
+
+                            <span class="stat-label">RESOLVED</span>
+                        </div>
+
+                        <h2 id="resolvedReports">--</h2>
+
+                        <p class="stat-description">
+                            Successfully completed
+                        </p>
+
+                        <div class="stat-footer green-text">
+                            <i class="fa-solid fa-check"></i>
+                            <span>Marked resolved</span>
+                        </div>
+
+                    </article>
+
+                </div>
+
+
+                <!-- MAIN GRID -->
+                <div class="dashboard-grid">
+
+                    <!-- REPORT TABLE -->
+                    <section class="panel reports-panel">
+
+                        <div class="panel-header">
+
+                            <div>
+                                <h3>Recent Reports</h3>
+
+                                <p>
+                                    Review recently submitted infrastructure
+                                    issues.
+                                </p>
+                            </div>
+
+                            <a href="my-reports.html" class="text-link">
+                                View All
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+
+                        </div>
+
+
+                        <div class="table-toolbar">
+
+                            <div class="search-box">
+
+                                <i class="fa-solid fa-magnifying-glass"></i>
+
+                                <input
+                                    type="search"
+                                    id="reportSearch"
+                                    placeholder="Search reports..."
+                                    aria-label="Search reports">
+
+                            </div>
+
+
+                            <select id="statusFilter"
+                                    aria-label="Filter reports by status">
+
+                                <option value="all">All Statuses</option>
+                                <option value="pending">Pending</option>
+                                <option value="in progress">In Progress</option>
+                                <option value="resolved">Resolved</option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="table-wrapper">
+
+                            <table>
+
+                                <thead>
+                                    <tr>
+                                        <th>REPORT</th>
+                                        <th>LOCATION</th>
+                                        <th>DATE</th>
+                                        <th>STATUS</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody id="reportsTable">
+
+                                    <tr>
+                                        <td colspan="4" class="loading-cell">
+                                            Loading reports...
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                        <p class="table-note" id="tableNote">
+                            Connecting to the report service...
+                        </p>
+
+                    </section>
+
+
+                    <!-- RIGHT COLUMN -->
+                    <div class="right-column">
+
+                        <section class="panel quick-actions-panel">
+
+                            <div class="panel-header">
+                                <div>
+                                    <h3>Quick Actions</h3>
+                                    <p>Common tasks</p>
+                                </div>
+                            </div>
+
+
+                            <a href="submit-report.html"
+                               class="action-item">
+
+                                <div class="action-icon blue">
+                                    <i class="fa-solid fa-file-circle-plus"></i>
+                                </div>
+
+                                <div>
+                                    <strong>Report an Issue</strong>
+                                    <span>Submit a new complaint</span>
+                                </div>
+
+                                <i class="fa-solid fa-chevron-right action-arrow"></i>
+
+                            </a>
+
+
+                            <a href="my-reports.html"
+                               class="action-item">
+
+                                <div class="action-icon purple">
+                                    <i class="fa-solid fa-list-check"></i>
+                                </div>
+
+                                <div>
+                                    <strong>Track Reports</strong>
+                                    <span>Check your report status</span>
+                                </div>
+
+                                <i class="fa-solid fa-chevron-right action-arrow"></i>
+
+                            </a>
+
+
+                            <a href="authority-dashboard.html"
+                               class="action-item">
+
+                                <div class="action-icon green">
+                                    <i class="fa-solid fa-building-shield"></i>
+                                </div>
+
+                                <div>
+                                    <strong>Authority Panel</strong>
+                                    <span>Review submitted reports</span>
+                                </div>
+
+                                <i class="fa-solid fa-chevron-right action-arrow"></i>
+
+                            </a>
+
+                        </section>
+
+
+                        <section class="community-card">
+
+                            <div class="community-card-top">
+                                <div class="community-icon">
+                                    <i class="fa-solid fa-city"></i>
+                                </div>
+
+                                <span>COMMUNITY IMPACT</span>
+                            </div>
+
+                            <h3>Better roads start with better reporting.</h3>
+
+                            <p>
+                                Help your community by reporting road damage
+                                and infrastructure problems.
+                            </p>
+
+                            <a href="submit-report.html">
+                                Make a Difference
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+
+                            <div class="community-decoration">
+                                <i class="fa-solid fa-road"></i>
+                            </div>
+
+                        </section>
+
+                    </div>
+
+                </div>
+
+
+                <footer class="footer">
+
+                    <span>
+                        © 2026 Infrastructure Metrics
+                    </span>
+
+                    <span>
+                        Building better communities
+                        <i class="fa-solid fa-heart"></i>
+                    </span>
+
+                </footer>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <script src="js/dashboard.js"></script>
+
+</body>
+
+</html>
